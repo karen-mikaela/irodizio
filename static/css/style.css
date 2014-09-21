@@ -1,6 +1,7 @@
 html,
 body {
     overflow-x: hidden;
+    font-family: "Open Sans";
 }
 body {
     padding-top: 70px;
@@ -34,7 +35,6 @@ span.wellcome{
 
 .btn-registrar-carro{
  margin-top: 50px;
- height: 80px;
  font-size: 24px;
  font-weight: 900;
 }
@@ -48,6 +48,12 @@ span.wellcome{
  margin-top: 10px;
 }
 
-.container-registrar-carro input{
- border: 1px solid black;
+.header{
+	font-weight: 900;
+	text-align: center;
+	font-size: 28px;
+}
+
+.input-novo-carro{
+	height: 40px;
 }
