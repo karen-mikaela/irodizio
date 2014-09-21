@@ -71,33 +71,21 @@
                                            type="password" maxlength="100">
                                 </div>
                             </div>
-
-
-
-
-
                             <div class="form-group">
                                 <span class="col-md-2 col-md-offset-0 "></span>
                                 <div class="col-md-4">
-                                    <button type="button" id="btn_registrar" class="btn btn-primary   btn-larges">
+                                    <button type="button" id="btn_registrar" class="btn btn-primary btn-larges">
                                         Registrar
                                     </button>
 
                                     <hr />
                                     <a href='login.html' class="btn btn-default  btn-large"> Login </a>
-
-
                                 </div>
                             </div>
 
                         </form>
                     </div>
                 </div>
-
-
-
-
-
             </div>
         </div>
         <hr>
@@ -115,12 +103,21 @@
             var btn = $(this);
             btn.button('loading');
 
+            if ($('#username').val() == '' ||
+                $('#email').val() == '' ||
+                $('#password').val() == '' ||
+                $('#telefone').val() == '')
+            {
+                $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">Informe todos os campos</div>');
+                return;
+            }
+
             var parameters = "username=".concat($('#username').val());
             parameters += "&email=".concat($('#email').val());
             parameters += "&password=".concat($('#password').val());
             parameters += "&telefone=".concat($('#telefone').val());
             $.ajax({
-                url: "http://localhost:2818/api/BasicAuthentication/Register?".concat(parameters),
+                url: "http://irodiziowebapi.azurewebsites.net/api/BasicAuthentication?".concat(parameters),
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
                 statusCode: {

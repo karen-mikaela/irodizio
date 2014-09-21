@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>IRodizio</title>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -8,94 +8,110 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
+</head>
+<body>
 
     <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">IRodizio</a>
-        </div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">IRodizio</a>
+            </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="#">
-              <span class="badge pull-right">42</span>
-              Meus Carros
-            </a></li>
-            <li class="active"><a href="#">Adicionar Carro</a></li>
-            <li><a href="#">Minhas Visitas</a></li>
-            <li><a href="#">Agendar Visita</a></li>
-            <li><a href="#">Rotas Alternativas</a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">
+                            <span class="badge pull-right">42</span>
+                            Meus Carros
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">Adicionar Carro</a></li>
+                    <li><a href="#">Minhas Visitas</a></li>
+                    <li><a href="#">Agendar Visita</a></li>
+                    <li><a href="#">Rotas Alternativas</a></li>
 
-          </ul>
+                </ul>
 
 
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </nav>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-    <p class="header">Adicionar Carro</p>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="header">Adicionar Carro</p>
+                <p id="pWebApiBasicResultado"></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <section style="text-align: center;">
+                            <div class="container-fluid container-registrar-carro">
+                                <div class="row">
+                                    <img height="150" width="200" src="img/index-car-image.png">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-md-2 col-md-offset-0 control-label"
+                                                   for="model">Código</label>
+                                            <div class="col-md-6">
+                                                <input class="form-control input-md input-novo-carro" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
 
-  <div class="row">
-    <div class="col-md-6">
+                                            <label class="col-md-2 col-md-offset-0 control-label"
+                                                   for="model">Placa</label>
+                                            <div class="col-md-6">
+                                                <input class="form-control input-md input-novo-carro" type="text" />
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label class="col-md-2 col-md-offset-0 control-label"
+                                                   for="model">Modelo</label>
+                                            <div class="col-md-6">
+                                                <input class="form-control input-md input-novo-carro" type="text" />
+                                            </div>
+
+                                        </div>s
+                                        <div class="form-group">
+                                            <span class="col-md-2 col-md-offset-0 "></span>
+                                            <div class="col-md-4">
+                                                <button type="button" class="btn btn-registrar-carro btn-primary">Registrar carro</button>
+
+                                                <hr />
+                                                <a href='registrar.html' class="btn btn-default"> Registre-se </a>
 
 
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
- <section style="text-align: center;">
-        <div class="container-fluid container-registrar-carro">
-            <div class="row">
-                <img height="150" width="200" src="img/index-car-image.png">
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <label class="registro-carro-label">
-                            Placa
-                        </label>
-                        <input  class="form-control input-md input-novo-carro" type="text"/>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="registro-carro-label">
-                            <strong>Modelo</strong>
-                        </label>
-                        <input  class="form-control input-md input-novo-carro" type="text"/>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="registro-carro-label">
-                            Ano
-                        </label>
-                        <input class="form-control input-md input-novo-carro" type="text"/>
                     </div>
                 </div>
-                <button class="btn btn-registrar-carro btn-primary">Registrar carro</button>
             </div>
         </div>
-    </section>
+        <hr>
 
+        <footer>
+            <p>&copy; IRodizio</p>
+        </footer>
     </div>
-  </div>
-        </div>
-      </div>
-      <hr>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-      <footer>
-        <p>&copy; IRodizio</p>
-      </footer>
-    </div>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-  </body>
+</body>
 </html>
 
 
