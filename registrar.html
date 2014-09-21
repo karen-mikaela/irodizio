@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>IRodizio</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">IRodizio</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Login</h2>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="" method="post" class="form-horizontal" role="form">
+                            <p id="pWebApiBasicResultado"></p>
+                            <div class="form-group">
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="model">Usuario</label>
+                                <div class="col-md-6">
+                                    <input id="username" name="username"
+                                           class="form-control input-md"
+                                           type="text" maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="telefone">E-mail</label>
+                                <div class="col-md-6">
+                                    <input id="email" name="email"
+                                           class="form-control input-md"
+                                           type="email" maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="telefone">Telefone</label>
+                                <div class="col-md-6">
+                                    <input id="telefone" name="telefone"
+                                           class="form-control input-md"
+                                           type="tel" maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="password">Senha</label>
+                                <div class="col-md-6">
+                                    <input id="password" name="password"
+                                           class="form-control input-md"
+                                           type="password" maxlength="100">
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-group">
+                                <span class="col-md-2 col-md-offset-0 "></span>
+                                <div class="col-md-4">
+                                    <button type="button" id="btn_registrar" class="btn btn-primary   btn-larges">
+                                        Registrar
+                                    </button>
+
+                                    <hr />
+                                    <a href='login.html' class="btn btn-default  btn-large"> Login </a>
+
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <hr>
+
+        <footer>
+            <p>&copy; IRodizio</p>
+        </footer>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+    <script>
+        $("#btn_registrar").on('click', function () {
+            var btn = $(this);
+            btn.button('loading');
+
+            var parameters = "username=".concat($('#username').val());
+            parameters += "&email=".concat($('#email').val());
+            parameters += "&password=".concat($('#password').val());
+            parameters += "&telefone=".concat($('#telefone').val());
+            $.ajax({
+                url: "http://localhost:2818/api/BasicAuthentication/Register?".concat(parameters),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                statusCode: {
+                    404: function (data) {
+                        $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">' + data.responseJSON + '</div>');
+                        btn.button('reset');
+                    },
+                    401: function (data) {
+                        $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">' + data.responseJSON + '</div>');
+                        btn.button('reset');
+                    },
+                    500: function (data) {
+                        $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">' + data.responseJSON + '</div>');
+                        btn.button('reset');
+                    }
+                },
+                success: function (data) {
+                    window.location.assign("index.html");
+                }
+            });
+
+        });
+    </script>
+
+
+</body>
+</html>

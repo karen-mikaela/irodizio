@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>IRodizio</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -8,138 +8,130 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
+</head>
+<body>
 
     <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">IRodizio</a>
-        </div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">IRodizio</a>
+            </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
 
-      </div><!-- /.container-fluid -->
+        </div><!-- /.container-fluid -->
     </nav>
 
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Login</h2>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="" method="post" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="model">Usuario</label>
+                                <div class="col-md-6">
+                                    <input id="username" name="username"
+                                           class="form-control input-md"
+                                           type="text" maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="model">Senha</label>
+                                <div class="col-md-6">
+                                    <input id="password" name="password"
+                                           class="form-control input-md"
+                                           type="password" maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-2 col-md-offset-0 "></span>
+                                <div class="col-md-4">
+                                    <button type="button" id="btn_login" class="btn btn-primary">
+                                        Entrar
+                                    </button>
+
+                                    <hr />
+                                    <a href='#' class="btn btn-default"> Registre-se </a>
+                                    <p id="pWebApiBasicResultado"></p>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
 
 
 
 
 
-<h2>Login</h2>
-
-  <div class="row">
-    <div class="col-md-6">
-      <form action="" method="post" class="form-horizontal" role="form">
-        <div class="form-group">
-          <label class="col-md-2 col-md-offset-0 control-label"
-              for="model">Usuario</label>
-          <div class="col-md-6">
-            <input id="username" name="username"
-                class="form-control input-md"
-                type="text" maxlength="100">
-          </div>
+            </div>
         </div>
+        <hr>
 
-        <div class="form-group">
-          <label class="col-md-2 col-md-offset-0 control-label"
-              for="model">Senha</label>
-          <div class="col-md-6">
-            <input id="password" name="password"
-                class="form-control input-md"
-                type="password" maxlength="100">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <span class="col-md-2 col-md-offset-0 "></span>
-          <div class="col-md-4">
-            <button  type="button" id="btn_login" class="btn btn-primary">
-              Entrar
-            </button>
-
-
-            <a href='#' class="btn btn-default"> Registre-se </a>
-            <p id="pWebApiBasicResultado"></p>
-
-          </div>
-        </div>
-
-      </form>
+        <footer>
+            <p>&copy; IRodizio</p>
+        </footer>
     </div>
-  </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+    <script>
+        $(function () {
+            $('#btn_login').on('click', function () {
+                var btn = $(this);
+                btn.button('loading');
 
+                /* Recuperamos o usuario e senha */
+                var user = $('#username').val();
+                var password = $('#password').val();
 
-
-
-        </div>
-      </div>
-      <hr>
-
-      <footer>
-        <p>&copy; IRodizio</p>
-      </footer>
-    </div>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-<script src="js/jquery-2.1.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/ionic.min.js"></script>
-        <script>
-            $(function () {
-                $('#btn_login').on('click', function () {
-                    var btn = $(this);
-                    btn.button('loading');
-
-                    /* Recuperamos o usuario e senha */
-                    var user = $('#username').val();
-                    var password = $('#password').val();
-
-                    var token = user.concat(":", password);
-                    $.ajax({
-                        url: 'http://irodiziowebapi.azurewebsites.net/api/BasicAuthentication',
-                        type: 'GET',
-                        contentType: 'application/x-www-form-ulencoded',
-                        headers: { "Authorization": "Basic ".concat(btoa(token)) },
-                        statusCode: {
-                            404: function (data) {
-                                $('#pWebApiBasicResultado').text(data.responseJSON);
-                                $('#username').val('');
-                                $('#password').val('');
-                                $('#username').focus();
-                                btn.button('reset');
-                            },
-                            401: function (data) {
-                                $('#pWebApiBasicResultado').text(data.responseJSON);
-                                $('#username').val('');
-                                $('#password').val('');
-                                $('#username').focus();
-                                btn.button('reset');
-                            },
-                            500: function (data) {
-                                $('#pWebApiBasicResultado').text(data.responseJSON);
-                                $('#username').val('');
-                                $('#password').val('');
-                                $('#username').focus();
-                                btn.button('reset');
-                            }
+                var token = user.concat(":", password);
+                $.ajax({
+                    url: 'http://irodiziowebapi.azurewebsites.net/api/BasicAuthentication',
+                    type: 'GET',
+                    contentType: 'application/x-www-form-ulencoded',
+                    headers: { "Authorization": "Basic ".concat(btoa(token)) },
+                    statusCode: {
+                        404: function (data) {
+                            $('#pWebApiBasicResultado').text(data.responseJSON);
+                            $('#username').val('');
+                            $('#password').val('');
+                            $('#username').focus();
+                            btn.button('reset');
                         },
-                        success: function (data) {
-                            window.location.assign("page1.html");
+                        401: function (data) {
+                            $('#pWebApiBasicResultado').text(data.responseJSON);
+                            $('#username').val('');
+                            $('#password').val('');
+                            $('#username').focus();
+                            btn.button('reset');
+                        },
+                        500: function (data) {
+                            $('#pWebApiBasicResultado').text(data.responseJSON);
+                            $('#username').val('');
+                            $('#password').val('');
+                            $('#username').focus();
+                            btn.button('reset');
                         }
+                    },
+                    success: function (data) {
+                        window.location.assign("page1.html");
+                    }
 
-                    });
                 });
             });
-        </script>
+        });
+    </script>
 
 
-  </body>
+</body>
 </html>
