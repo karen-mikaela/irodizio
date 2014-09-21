@@ -48,26 +48,27 @@
         <div class="row">
             <div class="col-md-12">
                 <p class="header">Adicionar Carro</p>
-                <p id="pWebApiBasicResultado"></p>
                 <div class="row">
                     <section style="text-align: center;">
                         <img height="150" width="200" src="img/index-car-image.png">
                     </section>
+                    
                     <div class="col-md-6">
+                        <p id="pWebApiBasicResultado"></p>
                         <form action="" method="post" class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label class="col-md-2 col-md-offset-0 control-label"
-                                       for="model">Código</label>
+                                       for="codigo">Código</label>
                                 <div class="col-md-6">
-                                    <input class="form-control input-md input-novo-carro" type="text" />
+                                    <input class="form-control input-md input-novo-carro" id="codigo" name="codigo" type="text" />
                                 </div>
                             </div>
                             <div class="form-group">
 
                                 <label class="col-md-2 col-md-offset-0 control-label"
-                                       for="model">Placa</label>
+                                       for="placa">Placa</label>
                                 <div class="col-md-6">
-                                    <input class="form-control input-md input-novo-carro" type="text" />
+                                    <input class="form-control input-md input-novo-carro" id="placa" name="placa" type="text" />
                                 </div>
 
                             </div>
@@ -76,7 +77,7 @@
                                 <label class="col-md-2 col-md-offset-0 control-label"
                                        for="model">Modelo</label>
                                 <div class="col-md-6">
-                                    <select id="ddlModelo" class="form-control">
+                                    <select id="ddlModelo" name="modelo" class="form-control">
                                         <option value="0">--Selecine--</option>
                                         <option value="0">Clio - Authentique 1.0 16V</option>
                                         <option value="0">Clio - Expression 1.0 16V</option>
@@ -87,9 +88,9 @@
                             <div class="form-group">
 
                                 <label class="col-md-2 col-md-offset-0 control-label"
-                                       for="model">Ano</label>
+                                       for="ano">Ano</label>
                                 <div class="col-md-6">
-                                    <select id="ddlAno" class="form-control"s>
+                                    <select id="ddlAno" name="ano" class="form-control">
                                         <option value="0">--Selecine--</option>
                                         <option value="2014">2014</option>
                                         <option value="2013">2013</option>
@@ -102,17 +103,18 @@
                                     </select>
 
                                 </div>
-                                 
+
                             </div>
                             <div class="form-group">
                                 <span class="col-md-2 col-md-offset-0 "></span>
                                 <div class="col-md-6">
-                                    <button type="button" class="btn btn-registrar btn-primary">Registrar carro</button>
+                                    <button type="button" id="btn-registrar" class="btn btn-registrar btn-primary">Registrar carro</button>
                                     <hr />
                                 </div>
                             </div>
                             <hr />
-                            <a href="meus_carros.html">voltar</a></form>
+                            <a href="meus_carros.html">voltar</a>
+                        </form>
                     </div>
 
                 </div>
@@ -124,12 +126,36 @@
     <footer>
         <p>&copy; IRodizio</p>
     </footer>
-    </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $("#btn-registrar").on('click', function () {
+            var btn = $(this);
+            btn.button('loading');
 
+            if ($('#codigo').val() == '' ||
+                $('#placa').val() == '' ||
+                $('#modelo').val() == '' ||
+                $('#anos').val() == '') {
+                $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">Informe todos os campos</div>');
+                btn.button('reset');
+                return;
+
+            }
+
+            var db = openDatabase('hackathon', '1.0', 'Rodizio', 200000);
+            var msg;
+            db.transaction(function (tx) {
+                // criar a tabela
+                tx.executeSql("CREATE TABLE Teste (id REAL UNIQUE, nome TEXT, timestamp REAL)", [[]], null, null);
+
+                // num caso de verdade, iríamos incluir callbacks para verificar que deu tudo certo mas para não estender demais o código vou pular esta parte...
+
+                // inserir dados
+                // obs - repare que usamos um "statement preparado", colocamos interrogações no lugar das variáveis e as listamos em um array no segundo parametro, fazendo <em>bind</em> delas
+                tx.executeSql("INSERT INTO Teste (nome, timestamp) values(?, ?)", [['Alex', new Date().getTime()]], null, null);
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
