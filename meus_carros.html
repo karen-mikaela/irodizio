@@ -63,19 +63,14 @@
                 <div class="list-group">
             <a href="diagnostico.html" class="list-group-item">
               <h4 class="list-group-item-heading">BTS-0098</h4>
-              <span class="badge pull-right alert-danger">4</span>
+              <span class="badge pull-right alert-danger"></span>
               <span>Fluence</span>
-            </a>
-            <a href="diagnostico.html" class="list-group-item">
-              <h4 class="list-group-item-heading">BTS-1298</h4>
-              <span>Clio</span>
             </a>
 
           </div>
             </div>
         </div>
         <hr>
-        <div id="status" name="status">Status Message</div>
         <footer>
             <p>&copy; IRodizio</p>
         </footer>
@@ -86,7 +81,6 @@
 
         var db = openDatabase('hackathon', '1.0', 'Rodizio', 2 * 1024 * 1024);
         // deverá mostrar "Database"
-        console.log(db);
 
         // de qualquer forma, sempre teste que o objeto foi instanciado direito antes de usá-lo
         if (!db) {
@@ -101,13 +95,10 @@
                 [[]],
                 // callback de sucesso, uma função anônima que recebe um objeto SQLTransaction e um SQLResultSet
                 function (transaction, result) {
-                    console.log('deu certo!');
-                    console.log(result);
+                    console.('deu certo!');
                 },
                 // callback de erro, função anônima que recebe um objeto SQLTransaction e um SQLError
                 function (transaction, error) {
-                    console.log('deu pau!');
-                    console.log(error);
                 }
             );
         });
@@ -116,7 +107,6 @@
             var len;
             tx.executeSql('SELECT * FROM MEUSCARROS', [], function (tx, results) {
                 len = results.rows.length, i;
-                alert(len);
             }, null);
 
         });
