@@ -1,7 +1,7 @@
 html,
 body {
     overflow-x: hidden;
-    font-family: "Open Sans";
+    
 }
 body {
     padding-top: 70px;
@@ -29,7 +29,7 @@ span.wellcome{
 
 .btn-index-text{
  padding:  30px;
- font-size: 36px;
+ font-size: 32px;
  font-weight: 900;
 }
 
@@ -51,9 +51,20 @@ span.wellcome{
 .header{
 	font-weight: 900;
 	text-align: center;
-	font-size: 28px;
+	font-size: 32px;
 }
 
 .input-novo-carro{
 	height: 40px;
+}
+
+.dropdown{
+	margin-top: 25px;
+	margin-left: 12px;
+	font-size: 30px !important;
+}
+
+.img-attribute{
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
