@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>IRodizio</title>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +45,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-    <p class="header">Adicionar Carro</p>
+    <p class="header">Agendar visita</p>
 
   <div class="row">
     <div class="col-md-6">
@@ -56,28 +56,38 @@
  <section style="text-align: center;">
         <div class="container-fluid container-registrar-carro">
             <div class="row">
-                <img height="150" width="200" src="img/index-car-image.png">
                 <div class="col-md-12">
                     <div class="col-md-4">
-                        <label class="registro-carro-label">
-                            Placa
-                        </label>
+                        <img class="img-attribute" src="img/schedule-visit.png">
                         <input  class="form-control input-md input-novo-carro" type="text"/>
                     </div>
                     <div class="col-md-4">
-                        <label class="registro-carro-label">
-                            <strong>Modelo</strong>
-                        </label>
+                        <img class="img-attribute" src="img/clock.png">
                         <input  class="form-control input-md input-novo-carro" type="text"/>
                     </div>
-                    <div class="col-md-4">
-                        <label class="registro-carro-label">
-                            Ano
-                        </label>
-                        <input class="form-control input-md input-novo-carro" type="text"/>
+                   <div class="col-md-4">
+                        <img class="img-attribute" src="img/dollar.png" >
+                        <input  class="form-control input-md input-novo-carro" type="text"/>
                     </div>
-                </div>
-                <button class="btn btn-registrar-carro btn-primary">Registrar carro</button>
+                     <div class="col-md-4">
+                        <img class="img-attribute" src="img/info.png">
+                        <input  class="form-control input-md input-novo-carro" type="text"/>
+                    </div>
+                  </div>
+                  <div style="text-align: left;" class="col-md-4">
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                          Selecionar concessionaria mais próxima
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Concessionária Aviação</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Concessionária Tokyo</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Concessionária Rio de Janeiro</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                <button class="btn btn-registrar-carro btn-primary">Agendar visita</button>
             </div>
         </div>
     </section>
