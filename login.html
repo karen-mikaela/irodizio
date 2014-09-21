@@ -6,54 +6,22 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
-
-
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-
   </head>
-
   <body>
 
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">IRodizio</a>
+        </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-
-      </ul>
-
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-
-
-
-
-
+      </div><!-- /.container-fluid -->
+    </nav>
 
     <div class="container">
       <div class="row">
@@ -91,7 +59,14 @@
         <div class="form-group">
           <span class="col-md-2 col-md-offset-0 "></span>
           <div class="col-md-4">
-            <input type="submit" class="btn btn-primary" value="Entrar">
+            <button  type="button" id="btn_login" class="btn btn-primary">
+              Entrar
+            </button>
+
+
+            <a href='#' class="btn btn-default"> Registre-se </a>
+            <p id="pWebApiBasicResultado"></p>
+
           </div>
         </div>
 
@@ -113,6 +88,58 @@
     </div>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/ionic.min.js"></script>
+        <script>
+            $(function () {
+                $('#btn_login').on('click', function () {
+                    var btn = $(this);
+                    btn.button('loading');
+
+                    /* Recuperamos o usuario e senha */
+                    var user = $('#username').val();
+                    var password = $('#password').val();
+
+                    var token = user.concat(":", password);
+                    $.ajax({
+                        url: 'http://irodiziowebapi.azurewebsites.net/api/BasicAuthentication',
+                        type: 'GET',
+                        contentType: 'application/x-www-form-ulencoded',
+                        headers: { "Authorization": "Basic ".concat(btoa(token)) },
+                        statusCode: {
+                            404: function (data) {
+                                $('#pWebApiBasicResultado').text(data.responseJSON);
+                                $('#username').val('');
+                                $('#password').val('');
+                                $('#username').focus();
+                                btn.button('reset');
+                            },
+                            401: function (data) {
+                                $('#pWebApiBasicResultado').text(data.responseJSON);
+                                $('#username').val('');
+                                $('#password').val('');
+                                $('#username').focus();
+                                btn.button('reset');
+                            },
+                            500: function (data) {
+                                $('#pWebApiBasicResultado').text(data.responseJSON);
+                                $('#username').val('');
+                                $('#password').val('');
+                                $('#username').focus();
+                                btn.button('reset');
+                            }
+                        },
+                        success: function (data) {
+                            window.location.assign("page1.html");
+                        }
+
+                    });
+                });
+            });
+        </script>
+
 
   </body>
 </html>
