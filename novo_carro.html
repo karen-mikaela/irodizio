@@ -146,14 +146,12 @@
             var db = openDatabase('hackathon', '1.0', 'Rodizio', 200000);
             var msg;
             db.transaction(function (tx) {
-                // criar a tabela
-                tx.executeSql("CREATE TABLE Teste (id REAL UNIQUE, nome TEXT, timestamp REAL)", [[]], null, null);
+                tx.executeSql('Drop TABLE MeusCarros');
+                tx.executeSql('CREATE TABLE MEUSCARROS (id UNIQUE, codigo TEXT)');
 
-                // num caso de verdade, iríamos incluir callbacks para verificar que deu tudo certo mas para não estender demais o código vou pular esta parte...
-
-                // inserir dados
-                // obs - repare que usamos um "statement preparado", colocamos interrogações no lugar das variáveis e as listamos em um array no segundo parametro, fazendo <em>bind</em> delas
-                tx.executeSql("INSERT INTO Teste (nome, timestamp) values(?, ?)", [['Alex', new Date().getTime()]], null, null);
+                //tx.executeSql('INSERT INTO MEUSCARROS (id, codigo, placa,modelo, ano) VALUES (1, ' + $('#codigo').val() + ',' + $('#placa').val() + ',' + $('#modelo').val() + ',' + $('#ano').val() + ')');
+                alert('Carro cadastrado')
+                //window.location.assign("meus_carros.html");
             });
         });
     </script>
