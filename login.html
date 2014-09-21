@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>IRodizio</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://snetdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,8 +27,9 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Login</h2>
-
+                <p id="pWebApiBasicResultado"></p>
                 <div class="row">
+                    
                     <div class="col-md-6">
                         <form action="" method="post" class="form-horizontal" role="form">
                             <div class="form-group">
@@ -37,7 +38,7 @@
                                 <div class="col-md-6">
                                     <input id="username" name="username"
                                            class="form-control input-md"
-                                           type="text" maxlength="100">
+                                           type="text" maxlength="100" required="required">
                                 </div>
                             </div>
 
@@ -47,7 +48,7 @@
                                 <div class="col-md-6">
                                     <input id="password" name="password"
                                            class="form-control input-md"
-                                           type="password" maxlength="100">
+                                           type="password" maxlength="100" required="required"s>
                                 </div>
                             </div>
 
@@ -59,8 +60,8 @@
                                     </button>
 
                                     <hr />
-                                    <a href='#' class="btn btn-default"> Registre-se </a>
-                                    <p id="pWebApiBasicResultado"></p>
+                                    <a href='registrar.html' class="btn btn-default"> Registre-se </a>
+                                    
 
                                 </div>
                             </div>
@@ -102,21 +103,21 @@
                     headers: { "Authorization": "Basic ".concat(btoa(token)) },
                     statusCode: {
                         404: function (data) {
-                            $('#pWebApiBasicResultado').text(data.responseJSON);
+                            $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">' + data.responseJSON + '</div>');
                             $('#username').val('');
                             $('#password').val('');
                             $('#username').focus();
                             btn.button('reset');
                         },
                         401: function (data) {
-                            $('#pWebApiBasicResultado').text(data.responseJSON);
+                            $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">' + data.responseJSON + '</div>');
                             $('#username').val('');
                             $('#password').val('');
                             $('#username').focus();
                             btn.button('reset');
                         },
                         500: function (data) {
-                            $('#pWebApiBasicResultado').text(data.responseJSON);
+                            $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">' + data.responseJSON + '</div>');
                             $('#username').val('');
                             $('#password').val('');
                             $('#username').focus();
