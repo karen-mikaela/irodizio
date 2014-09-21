@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="meus_carros.html">
-              <span class="badge pull-right">2</span>
+              <span class="badge pull-right">1</span>
               Meus Carros
             </a></li>
             <li><a href="novo_carro.html">Adicionar Carro</a></li>
@@ -70,18 +70,17 @@
                         <input  class="form-control input-md input-novo-carro" type="text"/>
                     </div>
                   </div>
+                </br>
                   <div style="text-align: left;" class="col-md-4">
-                      <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                          Selecionar concessionaria
-                          <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Concessionária Aviação</a></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Concessionária Tokyo</a></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Concessionária Rio de Janeiro</a></li>
-                        </ul>
-                      </div>
+                      <select id="concersionaria" name="modelo" class="form-control">
+                        <option value="0">--Selecione concessionaria--</option>
+                        <option value="0">Concessionária Aviação</option>
+                        <option value="0">Concessionária Tókyo</option>
+                        <option value="0">Concessionária Rio de Janeiro</option>
+                      </select>
+
+
+
                     </div>
                 <button id= "btn_registrar" class="btn btn-registrar-carro btn-primary">Agendar visita</button>
             </div>
