@@ -47,7 +47,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="header">Adicionar Carro</p>
                 <div class="row">
                     <section style="text-align: center;">
                         <img height="150" width="200" src="img/index-car-image.png">
@@ -168,30 +167,13 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $("#btn-registrar").on('click', function () {
-            var btn = $(this);
-            btn.button('loading');
+                            window.location.assign("meus_carros.html");
 
-            if ($('#codigo').val() == '' ||
-                $('#placa').val() == '' ||
-                $('#modelo').val() == '' ||
-                $('#anos').val() == '') {
-                $('#pWebApiBasicResultado').html('<div class="alert alert-danger" role="alert">Informe todos os campos</div>');
-                btn.button('reset');
-                return;
 
-            }
+                            }
 
-            var db = openDatabase('hackathon', '1.0', 'Rodizio', 200000);
-            var msg;
-            db.transaction(function (tx) {
-                tx.executeSql('Drop TABLE MeusCarros');
-                tx.executeSql('CREATE TABLE MEUSCARROS (id UNIQUE, codigo TEXT)');
 
-                //tx.executeSql('INSERT INTO MEUSCARROS (id, codigo, placa,modelo, ano) VALUES (1, ' + $('#codigo').val() + ',' + $('#placa').val() + ',' + $('#modelo').val() + ',' + $('#ano').val() + ')');
-                alert('Carro cadastrado')
-                //window.location.assign("meus_carros.html");
-            });
-        });
+        );
     </script>
 </body>
 </html>
