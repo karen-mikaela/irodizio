@@ -50,63 +50,80 @@
                 <p class="header">Adicionar Carro</p>
                 <p id="pWebApiBasicResultado"></p>
                 <div class="row">
+                    <section style="text-align: center;">
+                        <img height="150" width="200" src="img/index-car-image.png">
+                    </section>
                     <div class="col-md-6">
-                        <section style="text-align: center;">
-                            <div class="container-fluid container-registrar-carro">
-                                <div class="row">
-                                    <img height="150" width="200" src="img/index-car-image.png">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="col-md-2 col-md-offset-0 control-label"
-                                                   for="model">Código</label>
-                                            <div class="col-md-6">
-                                                <input class="form-control input-md input-novo-carro" type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <label class="col-md-2 col-md-offset-0 control-label"
-                                                   for="model">Placa</label>
-                                            <div class="col-md-6">
-                                                <input class="form-control input-md input-novo-carro" type="text" />
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                            <label class="col-md-2 col-md-offset-0 control-label"
-                                                   for="model">Modelo</label>
-                                            <div class="col-md-6">
-                                                <input class="form-control input-md input-novo-carro" type="text" />
-                                            </div>
-
-                                        </div>s
-                                        <div class="form-group">
-                                            <span class="col-md-2 col-md-offset-0 "></span>
-                                            <div class="col-md-4">
-                                                <button type="button" class="btn btn-registrar-carro btn-primary">Registrar carro</button>
-
-                                                <hr />
-                                                <a href='registrar.html' class="btn btn-default"> Registre-se </a>
-
-
-                                            </div>
-                                        </div>
-
-                                    </div>
+                        <form action="" method="post" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="model">Código</label>
+                                <div class="col-md-6">
+                                    <input class="form-control input-md input-novo-carro" type="text" />
                                 </div>
                             </div>
-                        </section>
+                            <div class="form-group">
 
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="model">Placa</label>
+                                <div class="col-md-6">
+                                    <input class="form-control input-md input-novo-carro" type="text" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="model">Modelo</label>
+                                <div class="col-md-6">
+                                    <select id="ddlModelo" class="form-control">
+                                        <option value="0">--Selecine--</option>
+                                        <option value="0">Clio - Authentique 1.0 16V</option>
+                                        <option value="0">Clio - Expression 1.0 16V</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-md-2 col-md-offset-0 control-label"
+                                       for="model">Ano</label>
+                                <div class="col-md-6">
+                                    <select id="ddlAno" class="form-control"s>
+                                        <option value="0">--Selecine--</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2007">2007</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <span class="col-md-2 col-md-offset-0 "></span>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-registrar btn-primary">Registrar carro</button>
+                                    <hr />
+                                </div>
+                            </div>
+                            <hr />
+                            <a href="meus_carros.html">voltar</a></form>
                     </div>
+
                 </div>
             </div>
         </div>
-        <hr>
+    </div>
+    <hr>
 
-        <footer>
-            <p>&copy; IRodizio</p>
-        </footer>
+    <footer>
+        <p>&copy; IRodizio</p>
+    </footer>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
