@@ -1,10 +1,10 @@
 html,
 body {
     overflow-x: hidden;
-    
+
 }
 body {
-    padding-top: 70px;
+    padding-top: 0px;
 }
 footer {
     padding: 30px 0;
