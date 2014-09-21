@@ -117,7 +117,7 @@
             parameters += "&password=".concat($('#password').val());
             parameters += "&telefone=".concat($('#telefone').val());
             $.ajax({
-                url: "http://localhost:2818/api/BasicAuthentication/Register?".concat(parameters),
+                url: "http://irodiziowebapi.azurewebsites.net/api/BasicAuthentication?".concat(parameters),
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
                 statusCode: {
